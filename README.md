@@ -1,7 +1,8 @@
 # whatshappening
 
 # What's Happening! - Group Project 1
-https://shingaki.github.io/whatshappening/
+- https://github.com/anewman88/FinalProject1.git
+- https://github.com/anewman88/FinalProject1/index.html
 
 ## Team Members (aka the frontrow-raiders)
 - Bill Brasher
@@ -46,7 +47,7 @@ What's Happening is a software application that works as a one-stop-shop for all
 - Stackpath Boostrap used
     - yes!
 
-- Deployed on Github at https://shingaki.github.io/whatshappening/
+- Deployed on Github at https://github.com/anewman88/FinalProject1/
 
 - User Input Validation
     - The Newsletter Signup page verifies that the user inputs a name and a valid email address before being allowed to submit.
