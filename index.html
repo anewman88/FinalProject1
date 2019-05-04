@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!--
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+-->
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/whatshappening.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>What's Happening Dallas?</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript"></script>
+    <script src="assets/javascript/common.js"></script>
+    <script src="assets/javascript/whapp.js"></script>
+    <script src="assets/javascript/events.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/newsletter.css">
+
+    <script type="text/javascript"></script>
+    <script src="assets/javascript/common.js"></script>
+    <script src="assets/javascript/whapp.js"></script>
+    <script src="assets/javascript/events.js"></script>
+   
+    <title>What's Happening?</title>
+
+</head>
+<body>
+
+    <!-- **************** City Header *****************************************************-->
+    <div class="container">
+        <div class="jumbotron" id=cityPic>
+            <img src="assets/images/DallasLogo.png" id="logo">
+        </div>
+    </div>
+
+    <!-- ***************** Button Banner ****************************************************-->
+     
+    <div class="container">
+        <div id="topicButtonsBanner">
+
+            <!-- ***************** Nightlife Dropdown Button ******************************************-->
+            <div class="btn-group">
+                <button type="button" id= "nightlifeButton" class="btn btn1 btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-cocktail">&nbsp;</i>Nightlife</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" onclick="getNight('Sports Bars')">Sports Bar</a>
+                    <a class="dropdown-item" onclick="getNight('Wine Bar')">Wine Bar</a>
+                    <a class="dropdown-item" onclick="getNight('Craft Beer')">Craft Beer</a>
+                    <a class="dropdown-item" onclick="getNight('Live Music')">Live Music</a>
+                    <a class="dropdown-item" onclick="getNight('Clubs & Lounges')">Clubs & Lounges</a>
+                </div>
+            </div>
+
+            <!-- ******************* Food/Dining Dropdown Button **************************************-->
+            <div class="btn-group">
+                <button type="button" id= "diningButton" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-utensils">&nbsp;</i>Dining</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" value="American" onclick="getFood('American')">American</a>
+                    <a class="dropdown-item" value="Italian" onclick="getFood('Italian')">Italian</a>
+                    <a class="dropdown-item" value="BBQ" onclick="getFood('BBQ')">BBQ</a>
+                    <a class="dropdown-item" value="Mexican" onclick="getFood('Mexican')">Mexican</a>
+                    <a class="dropdown-item" value="Asian" onclick="getFood('Asian')">Asian</a>
+                </div>
+            </div>
+            
+            <!-- ******************** Things to Do Dropdown Button ************************************-->
+            <div class="btn-group">
+                <button type="button" id= "thingsToDoButton" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-check-circle">&nbsp;</i>Things To Do</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" value="Movies" onclick="getThings('Movies')">Movies</a>
+                    <a class="dropdown-item" value="Sports" onclick="getThings('Sports')">Sports</a>
+                    <a class="dropdown-item" value="Concerts" onclick="getThings('Concerts')">Concerts</a>
+                    <a class="dropdown-item" value="LocalEvents" onclick="getLocalEvents()">Local Events</a>
+                </div>  
+            </div>
+
+            <!-- ********************* Newsletter Signup Button ****************************************-->
+
+            <div class="btn-group">
+                <button type="button" id="newsBtn" class="btn btn-light"><i class="fas fa-pen"></i>&nbsp;Newsletter Signup</button>
+            </div>  
+
+            <!--   Calendar button
+
+            <button id="calendar"><i class='far fa-calendar-alt'>&nbsp;</i>Today</button>
+            -->
+
+        </div>  <!-- Button Banner -->
+      
+        <!-- ********************* City Selection Button ****************************************-->
+        <div class="btn-group">
+            <button type="button" id="otherCitiesButton" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-city">&nbsp;&nbsp;</i>Other Cities</button>
+            <select class="dropbtn" id="CityDropDown" onchange="SelectCity(this.value)">
+                <option selected="selected">Select a City</option>
+                <!-- The buttons to select a city will be dynamically assigned-->
+            </select>
+        </div> 
+
+    </div>   <!-- Button Banner Container -->
+
+
+    <!-- ************** Newsletter Modal *************************************-->
+    <!-- **************New Modal *************************************-->
+
+    <!-- The Modal -->
+    <div id="NewsModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+
+            <div class="modal-header" style="padding:35px 35px;">
+                <div>
+                    <h4 id="news-title"> Subscribe to our Newsletter </h4>
+                    <h5 id="usrMsg"></h5>
+                </div>
+            </div>
+        
+            <div class="modal-body" style="padding:40px 50px;">
+                <form role="form" id=usrForm>
+                    <div class="form-group">
+                        <label for="usrname"><span></span><i class="fas fa-user"></i> Name</label>
+                        <input type="text" style="margin-left:0px" class="form-control" id="usrName" placeholder="Enter your first name">
+                    </div>
+                    <div class="form-group">
+                        <label for="usremail"><span ></span><i class="fas fa-envelope"></i> Email </label>
+                        <input type="text" style="margin-left:0px" class="form-control" id="usrEmail" placeholder="Enter email address email@example.com">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <button type="submit" class="btn btn-success" id="submitBtn"><span class="fas fa-check"></span> Submit </button>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+            
+        </div>
+    
+    </div> <!-- end of The Modal -->
+    
+
+    <!-- ****************** Results Display Area, Weather Widget, Ads *****************************-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md 6 overflow-auto"id="content-area">
+                <table style="overflow:scroll" class="table table-bordered" id="result-header">
+                    <tbody id="content-area">
+                        <tbody>
+                        </tbody>
+                    </tbody>
+                </table>
+                    
+                <img src="assets/images/image002.png" id="ticket-fpo">
+            </div>
+            <div class="col-md-6" id="sidebar">
+                <a class="weatherwidget-io" href="https://forecast7.com/en/32d78n96d80/dallas/?unit=us" data-label_1="DALLAS" data-label_2="WEATHER" data-theme="original" >DALLAS WEATHER</a>
+                <script>
+                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                </script>
+                <img src="assets/images/image001.png" id="advertising">
+            </div>
+        </div>
+    </div>   <!-- Results Display Area Contain -->
+
+    <!-- ************************ Footer *********************************************-->
+    <div class="container">
+        <footer class="footer mt-auto py-3">
+            <span class="text">Copyright 2019, What's Happening Media - Team Five, Inc.</span>
+        </footer>
+    </div>
+
+</body>
+</html>
